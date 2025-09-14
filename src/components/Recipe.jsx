@@ -10,9 +10,6 @@ export const Recipe = (data) => {
     {
           data.data.map((recipe) => {
             return <li>
-                    {
-                        
-                    }
                     <h2>{recipe.name}</h2>
                     <p>{recipe.time}</p>
                     <p>{recipe.servings}</p>
