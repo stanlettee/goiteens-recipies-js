@@ -1,12 +1,12 @@
 
 import './App.css';
 import { Recipe } from './components/Recipe'
-
+import './App.module.css'
 const data = require('./recipies.json')
 
 function App() {
   return (
-    <div className="App">
+    <div>
         <Recipe data={data}/>
     </div>
   );

@@ -4,24 +4,27 @@ import { Bs2SquareFill } from "react-icons/bs";
 import { Bs3SquareFill } from "react-icons/bs";
 import PropTypes from "prop-types";
 import { RecipeInfo } from './RecipeInfo'
+import styles from './Recipe.module.css'
 
 const icons = [Bs0SquareFill, Bs1SquareFill, Bs2SquareFill, Bs3SquareFill];
 
 export const Recipe = (data) => {
     
     console.log(data)
-    return <ul>
+    return <ul className={styles.list}>
     {
           data.data.map((recipe, index) => {
             const Icon = icons[index] || null;
-            return <li key={index}>
+            return <li className={styles.item} key={index}>
                     <RecipeInfo icon={ Icon }/>
-                    <h2>{recipe.name}</h2>
-                    <p>{recipe.time}</p>
-                    <p>{recipe.servings}</p>
-                    <p>{recipe.calories}</p>
-                    <p>{recipe.difficulty}</p>
-                    <img style={{width: '500px'}} src={recipe.image}/>
+                    <h2 className={styles.title}>{recipe.name}</h2>
+                    <ul className={styles.listP}>
+                      <li className={styles.itemP}><p>Time: {recipe.time}</p></li>
+                      <li className={styles.itemP}><p>Servings: {recipe.servings}</p></li>
+                      <li className={styles.itemP}><p>Calories: {recipe.calories}</p></li>
+                      <li className={styles.itemP}><p>Difficulty: {recipe.difficulty}</p></li>
+                    </ul>
+                    <img className={styles.img} src={recipe.image}/>
             </li>
         })
     }
